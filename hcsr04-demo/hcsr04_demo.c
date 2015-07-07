@@ -37,8 +37,13 @@ int main (void)
     while(i++ < 1000)
     {
         // Wait for the PRU interrupt to occur
-        prussdrv_pru_wait_event (PRU_EVTOUT_0);
-        prussdrv_pru_clear_event (PRU0_ARM_INTERRUPT);
+//        prussdrv_pru_wait_event (PRU_EVTOUT_0);
+//        prussdrv_pru_clear_event (PRU0_ARM_INTERRUPT);
+        
+        // Wait for the PRU interrupt - From Luigi
+		prussdrv_pru_wait_event (PRU_EVTOUT_0);
+		prussdrv_pru_clear_event(PRU_EVTOUT_0, PRU0_ARM_INTERRUPT);
+        
         
         // Print out the distance received from the sonar (sound takes 58.77 microseconds to travel 1 cm at sea level in dry air)
         printf("Distance = %f cm\n", (float) pruData[0] / 58.77);
