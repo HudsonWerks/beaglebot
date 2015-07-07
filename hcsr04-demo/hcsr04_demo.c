@@ -36,7 +36,7 @@ int main (void)
     int i = 0;
     while(i++ < 1000)
     {
-        // Wait for the PRU interrupt to occur
+        // Wait for the PRU interrupt to occur - original code
 //        prussdrv_pru_wait_event (PRU_EVTOUT_0);
 //        prussdrv_pru_clear_event (PRU0_ARM_INTERRUPT);
         
